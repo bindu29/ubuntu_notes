@@ -1,1 +1,1922 @@
-1
+ UBUNTU DOCUMENTATION
+
+
+
+After installing the UBUNTU desktop version 
+
+user: ss1014
+Password: Bird@Sriyam99
+
+connect to internet ,  open terminal and follow below command sto install drives in ubuntu 
+
+
+docker run -d --name rdp -p 6080:80 -p 5900:5900 -e USER=bird -e PASSWORD=Poor@logic19 -e VNC_PASSWORD=Poor@logic19 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
+
+
+Drives installation:
+
+sudo apt install gcc make -y
+sudo apt update && sudo apt install gcc make -y
+ls
+cd Downloads/
+ls
+cd rtl8812au-master/
+ make
+sudo make install
+sudo modprobe 8812au
+cd '/home/ss1014/Downloads/rtl8812au-master' 
+make
+sudo make install
+sudo modprobe 8812au
+ls
+
+To install basic applications for ubuntu desktop 
+ Chrome:
+Download chrome for ubuntu .deb file
+
+sudo apt install gdebi 
+ls
+sudo gdebi google-chrome-stable_current_amd64.deb 
+
+Downloading dbeaver for ubuntu 
+Dbeaver:
+
+wget -c https://dbeaver.io/files/dbeaver-ce_latest_i386.deb
+
+
+To connect to any other server use the following command 
+
+ssh root@one.birdoncloud.com
+
+Default:
+
+ sudo apt install openjfx
+ java -jar '/home/ss1014/Downloads/2019-11-23_10-42-38-25 (1)/2019-11-23_10-42-38-25/passwordencryptor/bin/passwordencryptor.jar'
+ sudo apt purge default-jdk
+sudo apt install openjdk-8-jdk openjfx
+ java -jar '/home/ss1014/Downloads/2019-11-23_10-42-38-25 (1)/2019-11-23_10-42-38-25/passwordencryptor/bin/passwordencryptor.jar'
+ java --version
+  java;
+  java --version
+ sudo rm -rf  openjdk-8-jdk openjfx
+  java --version
+ ls
+
+Docker :
+Installing Docker in ubuntu :
+
+
+ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
+
+ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs)  stable" 
+
+sudo apt-get update -y
+sudo apt-get install docker-ce -y
+
+sudo docker login
+
+username: birdsriyam
+password: Poor@logic19 
+
+Tomcat installation : 
+
+Tomcat311:
+
+sudo docker run -d --restart=always -p 8111:8080 -p 5003:5003 --name tomcatbird birdsriyam/boc:tombase
+
+Tomcat35:
+
+ sudo docker run -d --restart=always -p 9090:8080 -p 5004:5003 --name tomcat35 birdsriyam/boc:tombase
+
+ sudo docker ps
+
+Postgresql:
+
+ sudo docker run -d --restart=always -p 5111:5432 --name birdpost --env PGDATA=postgres -e POSTGRES_PASSWORD=BIRDWelcome@123 birdsriyam/boc:psdata
+
+Rabbitmq:
+
+ sudo docker run -d --restart=always -p 15111:15672 -p 6111:5672 --hostname bird-rabbit --name rabbitserver -e RABBITMQ_DEFAULT_USER=bird -e RABBITMQ_DEFAULT_PASS=BIRDWelcome@123 birdsriyam/boc:rabbitmq
+
+ls
+
+Clickhouse:
+
+To install clickhouse create a directory and than create a docker with volume
+
+  mkdir clickdata
+
+sudo docker run -d --restart=always  -p 8123:8123 --name birdstore --ulimit nofile=262144:262144 --volume=/home/ss1014/clickdata:/var/lib/clickhouse yandex/clickhouse-server
+
+check the containers:
+
+ sudo docker ps
+
+To connect to another network which as pem key
+
+
+ssh -i bikey.pem centos@15.206.180.97
+
+ sudo su
+exit
+sudo reboot
+passwd centos
+sudo passwd centos
+ ls
+
+Create a folder
+
+mkdir rdir
+sshfs centos@13.229.5.101:/home/centos rdir
+password:
+
+cd Downloads/
+ ls
+unzip birdoncloud-projects-e85d417629b0.zip 
+ ls
+cd birdoncloud-projects-e85d417629b0
+ ls
+ chmod +x BIRDinstaller.sh 
+ chmod +x startstop.sh 
+ cd ..
+ ls
+mv birdoncloud-projects-e85d417629b0 ../rdir
+cp -a  birdoncloud-projects-e85d417629b0 ../rdir
+ ls
+ cp -a  birdoncloud-projects-e85d417629b0.zip ../rdir
+
+SSH  for esnad
+
+ssh -i bikey.pem centos@15.206.180.97
+ ls
+cd ..
+ ls
+mkdir esnad
+ ls
+sshfs centos@15.206.180.97:/home/centos esnad
+ ls
+ cd Downloads/
+cp birdoncloud-projects-e85d417629b0.zip ../esnad
+
+
+Defaults :
+
+rm -rf birdoncloud-projects-e85d417629b0
+sudo yum install unzip -y
+ sudo unzip birdoncloud-projects-e85d417629b0.zip 
+cd birdoncloud-projects-e85d417629b0
+ ls
+ chmod +x BIRDinstaller.sh 
+ sudo chmod +x BIRDinstaller.sh 
+ cd ..
+chmod -R 777 birdoncloud-projects-e85d417629b0
+ sudo chmod -R 777 birdoncloud-projects-e85d417629b0
+  ls
+ cd birdoncloud-projects-e85d417629b0
+  ls
+  sudo ./BIRDinstaller.sh 
+  history
+
+Pgadmin in ubuntu
+
+install postgres
+
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+
+sudo apt update
+
+ sudo apt -y install postgresql postgresql-contrib
+
+  su – postgres
+
+ psql
+
+\password postgres
+
+
+
+install pgadmin
+
+ sudo apt install pgadmin4 pgadmin4-apache2 -y
+
+enter email address :postgres@localhost
+password: Poor@logic19
+
+
+Python installation
+
+sudo apt install python3 python3-venv
+
+sudo apt install python3-pip
+
+pip3 install pandas
+
+pip3 install xlrd
+
+Using python covert xlsx to csv
+
+using atom or any other tool write the scrite and save as “program.py”
+
+script:
+
+import pandas as pd
+
+read_file = pd.read_excel (r'/home/ss1014/Documents/post_abstract_grid_query.xlsx')
+read_file.to_csv (r'/home/ss1014/Documents/post_abstract_grid_query.csv', index = None, header=True)
+
+read_file = pd.read_excel (r'/home/ss1014/Documents/post_received_bar.xlsx')
+read_file.to_csv (r'/home/ss1014/Documents/post_received_bar.csv', index = None, header=True)
+
+read_file = pd.read_excel (r'/home/ss1014/Documents/post_vw_dashboard_grid_list.xlsx')
+read_file.to_csv (r'/home/ss1014/Documents/post_vw_dashboard_grid_list.csv', index = None, header=True)
+
+read_file = pd.read_excel (r'/home/ss1014/Documents/pre_abstract_query.xlsx')
+read_file.to_csv (r'/home/ss1014/Documents/pre_abstract_query.csv', index = None, header=True)
+
+read_file = pd.read_excel (r'/home/ss1014/Documents/pre_received_bar.xlsx')
+read_file.to_csv (r'/home/ss1014/Documents/pre_received_bar.csv', index = None, header=True)
+
+read_file = pd.read_excel (r'/home/ss1014/Documents/pre_vw_dashboard_grid_list.xlsx')
+read_file.to_csv (r'/home/ss1014/Documents/pre_vw_dashboard_grid_list.csv', index = None, header=True)
+
+
+
+
+
+And then run the following command by going into the folder where the program.py is saved
+
+cd Downloads
+
+python3 program.py
+
+To disable usb storage in systems:
+
+$ sudo nano /etc/modprobe.d/blacklist.conf 
+
+enter below lines in the file blacklist.conf 
+ 
+blacklist uas
+
+blacklist usb_storage
+
+sudo reboot
+
+To join all the sheets in a single sheet 
+
+
+Script:
+
+import pandas as pd
+import sys
+input_file = sys.argv[1]
+output_file = sys.argv[2]
+df = pd.read_excel(input_file, None)
+all_df = []
+for key in df.keys():
+    all_df.append(df[key])
+data_concatenated = pd.concat(all_df,axis=0,ignore_index=True)
+writer = pd.ExcelWriter(output_file)
+data_concatenated.to_excel(writer,sheet_name='merged',index=False)
+writer.save()
+
+save it as abc.py
+
+cd Downloads/
+ls
+pip3 install openpyxl
+python3 boring.py enrolls.xlsx output.xlsx
+
+
+
+VESTACP:
+
+restoration of website:
+
+create a directory
+
+mkdir -p /opt/vestacp/{vesta,home,backup}
+
+install docker :
+
+docker run -d --restart=always -p 3322:22 -p 80:80 -p 443:443 -p 9088:8083 -p 3306:3306 –name vestacp-v /opt/vestacp/vesta:/vesta -v /opt/vestacp/home:/home -v /opt/vestacp/backup:/backup niiknow/vestacp
+
+
+sudo docker cp admin.2019-11-22_05-12-10.tar vestacp:/backup
+
+docker exec -it vestacp bash
+cd /backup
+
+#usr/local/vesta/bin/v-restore-user admin admin.2019-11-22_05-12-10.tar 
+  
+To change password:
+
+v-change-user-password admin admin 
+/usr/local/vesta/bin/v-change-user-password admin Poor@logic19
+
+To know the passwords of database:
+
+ cd /home/admin/web/tracker.birdoncloud.com/public_html
+
+ nano config_defaults_inc.php
+
+
+postgres backup & restore:
+
+backup:
+pg_dump -U postgres -f bird35.sql bird35
+
+pg_dumpall > outfile
+
+restore:
+
+psql -d bird35 -f bird35.sql
+
+
+psql -f infile postgres
+
+Installation manually  centos
+
+
+clickhouse:
+
+sudo yum install -y pygpgme yum-utils
+
+sudo vi /etc/yum.repos.d/altinity_clickhouse.repo
+
+[altinity_clickhouse]
+name=altinity_clickhouse
+baseurl=https://packagecloud.io/altinity/clickhouse/el/7/$basearch
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey=https://packagecloud.io/altinity/clickhouse/gpgkey
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+
+[altinity_clickhouse-source]
+name=altinity_clickhouse-source
+baseurl=https://packagecloud.io/altinity/clickhouse/el/7/SRPMS
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey=https://packagecloud.io/altinity/clickhouse/gpgkey
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+
+
+sudo yum -q makecache -y --disablerepo='*' --enablerepo='altinity_clickhouse'
+
+sudo yum install -y clickhouse-server-19.4.0.49 clickhouse-client-19.4.0.49
+
+sudo service clickhouse-server start
+
+sudo service clickhouse-server status
+
+
+
+postgres:
+
+rpm -Uvh https://yum.postgresql.org/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
+
+yum install postgresql10-server postgresql10
+
+/usr/pgsql-10/bin/postgresql-10-setup initdb
+
+systemctl start postgresql-10.service
+
+systemctl enable postgresql-10.service
+
+su - postgres -c "psql"
+
+\password postgres
+
+
+
+
+Manually UBUNTU
+
+clickhouse:
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv E0C56BD4
+
+echo "deb http://repo.yandex.ru/clickhouse/deb/stable/ main/" | sudo tee /etc/apt/sources.list.d/clickhouse.list
+
+sudo apt-get update -y
+
+sudo apt-get install -y clickhouse-server=19.4.0 clickhouse-client=19.4.0  clickhouse-common-static=19.4.0 clickhouse-server-base=19.4.0
+
+sudo service clickhouse-server start
+
+sudo service clickhouse-server status
+
+
+postgres: 
+
+sudo apt install postgresql postgresql-contrib
+
+cd /etc/postgresql/10/main
+
+systemctl enable postgresql
+
+systemctl stop postgresql
+
+systemctl start postgresql
+
+
+RabbitMQ:
+
+echo 'deb http://www.rabbitmq.com/debian/ testing main' | sudo tee /etc/apt/sources.list.d/rabbitmq.list
+
+wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -
+
+
+sudo apt-get update
+
+sudo apt-get install rabbitmq-server
+
+sudo systemctl enable rabbitmq-server
+
+
+sudo systemctl start rabbitmq-server
+
+
+sudo rabbitmqctl add_user bird BIRDWelcome@123
+ 
+
+ sudo rabbitmqctl set_user_tags bird administrator
+  
+
+sudo rabbitmqctl set_permissions -p / bird ".*" ".*" ".*"
+
+sudo rabbitmq-plugins enable rabbitmq_management
+
+
+Tomcat:
+
+sudo apt-get update
+
+ sudo apt-get install openjdk-8-jdk
+
+sudo groupadd tomcat
+
+sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+
+cd /tmp
+
+wget http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz
+
+sudo mkdir /opt/tomcat
+
+sudo tar xzvf apache-tomcat-9.0.30.tar.gz -C /opt/tomcat --strip-components=1
+
+cd /opt/tomcat
+
+sudo chgrp -R tomcat /opt/tomcat
+
+sudo chmod -R g+r conf
+
+sudo chmod g+x conf
+
+sudo chown -R tomcat webapps/ work/ temp/ logs/
+
+sudo update-java-alternatives -l
+
+
+
+sudo nano /etc/systemd/system/tomcat.service
+
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
+Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+
+User=tomcat
+Group=tomcat
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
+ sudo systemctl daemon-reload
+
+ sudo systemctl start tomcat
+
+ sudo systemctl status tomcat
+
+python :
+
+sudo apt-get install -y python3-pip
+
+
+Smart insights:
+
+Step 1 : CMD : sudo apt-get update
+
+Step 2: CMD : sudo apt-get install python3-pip python3-dev virtualenv
+
+Step 3 : Create a folder in opt (birdml)
+ CMD    mkdir /opt/birdml
+
+Step 4 : CMD: virtualenv -p python3 birdml
+
+Step 5 : CMD : tr
+
+Step 6 : Install Required Packages (CMD : pip install h2o numpy pandas sklearn statistics scipy statsmodels django clickhouse_driver seaborn matplotlib  word2number n2w gensim spacy pyLDAvis nltk textblob  xgboost  plot_metric pmdarima vaderSentiment imblearn)
+
+Step  7 : copy the Models to site-packages folder /opt/python/mlwork/birdml/lib/python3.6/site-packages/Model
+
+Step 8 :  python manage.py runserver 0.0.0.0:8000
+
+
+
+Clickhouse 
+
+
+​  1.  OA_date should be replaced with _id  and check the click house performance including alters and deletes.
+
+
+Deployed latest clickhouse 19.17.2
+
+created a table in merge tree engine 
+
+
+CREATE TABLE bird.superstore (`OA_timestamp` DateTime DEFAULT NOW(), 
+`_id` Date DEFAULT CAST(NOW(), 'Date'), 
+`Returned` Nullable(String) CODEC(ZSTD(22)), 
+`Order ID2` Nullable(String) CODEC(ZSTD(22)), 
+`Person` Nullable(String) CODEC(ZSTD(22)), 
+`Region2` Nullable(String) CODEC(ZSTD(22)), 
+`RowID` Nullable(Float64) CODEC(ZSTD(22)), 
+`Order ID` Nullable(String) CODEC(ZSTD(22)), 
+`Order Date` Nullable(DateTime) CODEC(ZSTD(22)), 
+`Ship Date` Nullable(DateTime) CODEC(ZSTD(22)), 
+`Ship Mode` Nullable(String) CODEC(ZSTD(22)), 
+`Customer ID` Nullable(String) CODEC(ZSTD(22)), 
+`Customer Name` Nullable(String) CODEC(ZSTD(22)), 
+`Segment` Nullable(String) CODEC(ZSTD(22)), 
+`Country` Nullable(String) CODEC(ZSTD(22)), 
+`City` Nullable(String) CODEC(ZSTD(22)), 
+`State` Nullable(String) CODEC(ZSTD(22)), 
+`Postal Code` Nullable(Float64) CODEC(ZSTD(22)), 
+`Region` Nullable(String) CODEC(ZSTD(22)), 
+`Product ID` Nullable(String) CODEC(ZSTD(22)), 
+`Category` Nullable(String) CODEC(ZSTD(22)), 
+`Sub-Category` Nullable(String) CODEC(ZSTD(22)), 
+`Product Name` Nullable(String) CODEC(ZSTD(22)), 
+`Sales` Nullable(Float64) CODEC(ZSTD(22)), 
+`Quantity` Nullable(Float64) CODEC(ZSTD(22)), 
+`Discount` Nullable(Float64) CODEC(ZSTD(22)), 
+`Profit` Nullable(Float64) CODEC(ZSTD(22))) 
+ENGINE = MergeTree(_id, _id, 8192)
+
+
+
+Sample data insertion:  
+
+INSERT into `bindu`.sample 
+(customer_id,last_name,first_name,favourite_website)
+values(4000,'Jackson','Joe','techonthenet.com'),
+(,5000,'Smith','Jane','digminecraft.com'),
+(6000,'Ferguson','Samantha','bigactivities.com'),
+(7000,'Reynolds','Allen','checkyourmath.com'),
+(8000,'Anderson','Paige','digminecraft.com'),
+(9000,'Johnson','Derek','techonthenet.com');
+
+Query to fetch the data 
+
+
+select  OA_timestamp ,OA_Date as _id , Returned , `Order ID2` ,Person ,Region2 , RowID ,`Order ID` ,`Order Date` ,`Ship Date` ,`Ship Mode` ,`Customer ID` ,`Customer Name` ,Segment ,Country ,City ,State,`Postal Code` ,Region ,`Product ID` ,Category ,`Sub-Category` ,`Product Name` ,Sales ,Quantity ,Discount ,Profit  from bindu.cibird_1_report_1_153
+
+
+Insert the data into tables
+
+INSERT INTO bird.sales 
+select  OA_timestamp ,OA_Date as _id , Returned , `Order ID2` ,Person ,Region2 , RowID ,`Order ID` ,`Order Date` ,`Ship Date` ,`Ship Mode` ,`Customer ID` ,
+`Customer Name` ,Segment ,Country ,City ,State,`Postal Code` ,Region ,`Product ID` ,Category ,`Sub-Category` ,`Product Name` ,Sales ,
+Quantity ,Discount ,Profit  from bird.superstore
+For manual insertion of data refer home/Documents/new/superstore insert query
+
+ADD column 
+
+ALTER TABLE bird.sales ADD COLUMN browser String AFTER _id
+
+Drop column
+
+ALTER TABLE bird.sales  drop COLUMN browser 
+
+Insert data 
+
+INSERT INTO bird.sales
+(OA_timestamp, `_id`, Returned, `Order ID2`, Person, Region2, RowID, `Order ID`, 
+`Order Date`, `Ship Date`, `Ship Mode`, `Customer ID`, `Customer Name`, Segment,
+Country, City, State, `Postal Code`, Region, `Product ID`, Category, `Sub-Category`,
+`Product Name`, Sales, Quantity, Discount, Profit)
+VALUES(NOW(), CAST(NOW(), 'Date'), 'Yes','CA-2014-100762',
+'Kelly Williams','Central',6315,'CA-2014-100762','2014-11-24 05:30:00',
+'2014-11-29 05:30:00','Standard Class','NG-18355','Nat Gilpin','Corporate',
+'United States','Jackson','Michigan',49201,'Central','OFF-AR-10000380','Office Supplies',
+'Art','Hunt PowerHouse Electric Pencil Sharpener, Blue',151.92,4,0,45.576);
+
+
+Delete data 
+
+ALTER TABLE bird.sales DELETE WHERE _id='2020-01-29'
+
+
+
+                                             CLICKHOUSE ENGINES
+
+1. Merge tree engine:
+Engines in the Merge tree family are designed for inserting a very large amount of data into a table. The data is quickly written to the table part by part, then rules are applied for merging the parts in the background. This method is much more efficient than continually rewriting the data in storage during insert.
+Main features:
+
+⦁	Stores data sorted by primary key.
+⦁	Partitions can be used if the partitioning key is specified.
+⦁	Data replication and sampling support.
+Syntax:
+CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
+(
+    name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1] [TTL expr1],
+    name2 [type2] [DEFAULT|MATERIALIZED|ALIAS expr2] [TTL expr2],
+    ...
+    INDEX index_name1 expr1 TYPE type1(...) GRANULARITY value1,
+    INDEX index_name2 expr2 TYPE type2(...) GRANULARITY value2
+) ENGINE = MergeTree()
+[PARTITION BY expr]
+[ORDER BY expr]
+[PRIMARY KEY expr]
+[SAMPLE BY expr]
+[TTL expr [DELETE|TO DISK 'xxx'|TO VOLUME 'xxx'], ...]
+[SETTINGS name=value, ...]
+
+Engine:: Name and parameters of the engine but merge tree doesn’t have parameters.
+Partition by:: To partitioning by month ,use date column where the date column is a column with a date of the type DATE.
+Order by:: sorting key
+Ex: order by ( Id, event date)
+Primary Key :: by default the primary key is the same as the sorting key.In most of cases it is neccessary to specify a seperate primary key clause.
+Sample by:: sample by (inthash32(Id) order by ( Id, event date,inthash32(Id) ).
+setting name :: index_granularity
+Maximum number of data rows between the marks of an index. Default value=8192
+2. Merge::
+
+The Merge engine (not to be confused with MergeTree) does not store data itself, but allows reading from any number of other tables simultaneously. Reading is automatically parallelized. Writing to a table is not supported. When reading, the indexes of tables that are actually being read are used, if they exist. The Merge engine accepts parameters: the database name and a regular expression for tables
+Example:
+
+Let's say you have a old table (sample_old) and decided to change partitioning without moving data to a new table (sample_new) and you need to see data from both tables.
+
+Create table ::
+
+CREATE TABLE bird.sample_old (`OA_timestamp` DateTime DEFAULT NOW(), 
+`_id` Date DEFAULT CAST(NOW(), 'Date'), 
+`Returned` Nullable(String) , 
+`Order ID2` Nullable(String) , 
+`Person` Nullable(String) , 
+`Region2` Nullable(String) , 
+`RowID` Nullable(Float64) , 
+`Order ID` Nullable(String) , 
+`Order Date` Nullable(DateTime) , 
+`Ship Date` Nullable(DateTime), 
+`Ship Mode` Nullable(String) , 
+`Customer ID` Nullable(String) , 
+`Customer Name` Nullable(String) , 
+`Segment` Nullable(String) , 
+`Country` Nullable(String) , 
+`City` Nullable(String) , 
+`State` Nullable(String) , 
+`Postal Code` Nullable(Float64) , 
+`Region` Nullable(String) , 
+`Product ID` Nullable(String) , 
+`Category` Nullable(String) , 
+`Sub-Category` Nullable(String) , 
+`Product Name` Nullable(String) , 
+`Sales` Nullable(Float64) , 
+`Quantity` Nullable(Float64) , 
+`Discount` Nullable(Float64) , 
+`Profit` Nullable(Float64) ) 
+ENGINE = MergeTree(_id, _id, 8192)
+
+INSERT data::
+
+INSERT INTO bird.sample_old (OA_timestamp,`_id`,Returned,`Order ID2`,Person,Region2,RowID,`Order ID`,`Order Date`,`Ship Date`,`Ship Mode`,`Customer ID`,`Customer Name`,Segment,Country,City,State,`Postal Code`,Region,`Product ID`,Category,`Sub-Category`,`Product Name`,Sales,Quantity,Discount,Profit) 
+VALUES(
+ NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-100762','Kelly Williams','Central',6316,'CA-2014-100762','2014-11-24 05:30:00','2014-11-29 05:30:00','Standard Class','NG-18355','Nat Gilpin','Corporate','United States','Jackson','Michigan',49201,'Central','OFF-LA-10003930','Office Supplies','Labels','Dot Matrix Printer Tape Reel Labels, White, 5000/Box',196.62,2,0,96.3438) ,
+(NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-100762','Kelly Williams','Central',6317,'CA-2014-100762','2014-11-24 05:30:00','2014-11-29 05:30:00','Standard Class','NG-18355','Nat Gilpin','Corporate','United States','Jackson','Michigan',49201,'Central','OFF-PA-10001815','Office Supplies','Paper','Xerox 1885',144.12,3,0,69.1776) ,
+ (NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-100762','Kelly Williams','Central',6318,'CA-2014-100762','2014-11-24 05:30:00','2014-11-29 05:30:00','Standard Class','NG-18355','Nat Gilpin','Corporate','United States','Jackson','Michigan',49201,'Central','OFF-PA-10004082','Office Supplies','Paper','Adams Telephone Message Book w/Frequently-Called Numbers Space, 400 Messages per Book',15.96,2,0,7.98) , 
+(NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-100762','Kelly Williams','Central',6315,'CA-2014-100762','2014-11-24 05:30:00','2014-11-29 05:30:00','Standard Class','NG-18355','Nat Gilpin','Corporate','United States','Jackson','Michigan',49201,'Central','OFF-AR-10000380','Office Supplies','Art','Hunt PowerHouse Electric Pencil Sharpener, Blue',151.92,4,0,45.576) ,
+ (NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-100867','Anna Andreadi','West',9462,'CA-2014-100867','2014-10-19 05:30:00','2014-10-24 05:30:00','Standard Class','EH-14125','Eugene Hildebrand','Home Office','United States','Lakewood','California',90712,'West','TEC-PH-10004922','Technology','Phones','RCA Visys Integrated PBX 8-Line Router',321.552,6,0.2,20.097) ;
+ 
+Create another table with  different values
+
+INSERT INTO bird.sample_new (OA_timestamp,`_id`,Returned,`Order ID2`,Person,Region2,RowID,`Order ID`,`Order Date`,`Ship Date`,`Ship Mode`,`Customer ID`,`Customer Name`,Segment,Country,City,State,`Postal Code`,Region,`Product ID`,Category,`Sub-Category`,`Product Name`,Sales,Quantity,Discount,Profit) 
+VALUES(
+NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-102652','Anna Andreadi','West',6017,'CA-2014-102652','2014-04-06 05:30:00','2014-04-12 05:30:00','Standard Class','AY-10555','Andy Yotov','Corporate','United States','Los Angeles','California',90049,'West','FUR-FU-10001918','Furniture','Furnishings','C-Line Cubicle Keepers Polyproplyene Holder With Velcro Backings',33.11,7,0,12.9129) ,
+ (NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-102652','Anna Andreadi','West',6016,'CA-2014-102652','2014-04-06 05:30:00','2014-04-12 05:30:00','Standard Class','AY-10555','Andy Yotov','Corporate','United States','Los Angeles','California',90049,'West','FUR-FU-10000747','Furniture','Furnishings','Tenex B1-RE Series Chair Mats for Low Pile Carpets',91.96,2,0,15.6332) ,
+ ( NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-102652','Anna Andreadi','West',6018,'CA-2014-102652','2014-04-06 05:30:00','2014-04-12 05:30:00','Standard Class','AY-10555','Andy Yotov','Corporate','United States','Los Angeles','California',90049,'West','OFF-PA-10003309','Office Supplies','Paper','Xerox 211',19.44,3,0,9.3312) ,
+ (NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-102652','Anna Andreadi','West',6019,'CA-2014-102652','2014-04-06 05:30:00','2014-04-12 05:30:00','Standard Class','AY-10555','Andy Yotov','Corporate','United States','Los Angeles','California',90049,'West','OFF-PA-10001977','Office Supplies','Paper','Xerox 194',55.48,1,0,26.6304) 
+, (
+ NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-103373','Chuck Magee','East',1830,'CA-2014-103373','2014-05-18 05:30:00','2014-05-24 05:30:00','Standard Class','BS-11755','Bruce Stewart','Consumer','United States','Cleveland','Ohio',44105,'East','TEC-PH-10002885','Technology','Phones','Apple iPhone 5',779.796,2,0.4,-168.9558) ;
+
+
+CREATE TABLE bird.sample as bird.sample_old ENGINE=Merge(bird, '^sample');
+
+It will created as view in bird database with the data in sample_old and sample_new
+
+
+
+3. External data
+
+⦁	ClickHouse allows sending a server the data that is needed for processing a query, together with a SELECT query.
+⦁	This data is put in a temporary table and can be used in the query (for example, in IN operators).
+
+For example, if you have a text file with important user identifiers, you can upload it to the server along with a query that uses filtration by this list.
+
+External data can be uploaded using the command-line client (in non-interactive mode), or using the HTTP interface.
+
+ Syntax::
+    --external --file=... [--name=...] [--format=...] [--types=...|--structure=...]
+external : – Marks the beginning of a clause.
+file: Path to the file with the table dump, or -, which refers to stdin. Only a single table can be retrieved from stdin.
+The following parameters are optional:
+name:  Name of the table. If omitted, _data is used. 
+Format:  Data format in the file. If omitted, TabSeparated is used
+One of the following parameters is required:
+
+types: A list of comma-separated column types. 
+For example: UInt64,String. 
+The columns will be named _1, _2, ...
+structure: The table structure in the format
+UserID UInt64,URL String. 
+Defines the column names and types.
+
+Ex::SELECT count() FROM bird.sample_old  --external --file=- --types=Int64;
+
+((   $ cat /etc/passwd | sed 's/:/\t/g' | clickhouse-client -u bird --password BIRDWelcome@123 --query="SELECT shell, count() AS c FROM passwd GROUP BY shell ORDER BY c DESC" --external --file=- --name=passwd --structure='login String, unused String, uid UInt16, gid UInt16, comment String, home String, shell String'
+
+output::
+/usr/sbin/nologin	17
+/bin/false	1
+/bin/sync	1
+/bin/bash	1
+
+When using the HTTP interface, external data is passed in the multipart/form-data format. Each table is transmitted as a separate file. The table name is taken from the file name. The 'query_string' is passed the parameters 'name_format', 'name_types', and 'name_structure', where 'name' is the name of the table that these parameters correspond to. The meaning of the parameters is the same as when using the command-line client
+
+
+cat /etc/passwd | sed 's/:/\t/g' > passwd.tsv
+
+curl -F 'passwd=@passwd.tsv;' 'http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"& HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String" HYPERLINK "http://localhost:8123/?query=SELECT+shell,+count()+AS+c+FROM+passwd+GROUP+BY+shell+ORDER+BY+c+DESC&passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String"passwd_structure=login+String,+unused+String,+uid+UInt16,+gid+UInt16,+comment+String,+home+String,+shell+String  ))
+
+
+4. Custom Partitioning Key
+
+
+Partitioning is available for the merge tree family tables 
+
+A partition is a logical combination of records in a table by a specified criterion. You can set a partition by an arbitrary criterion, such as by month, by day, or by event type.
+
+Use the system.parts able to view the table parts and partitions. 
+For example : let's assume that we have a sales table with partitioning by month. Let's perform the SELECT query for the system.parts table:
+
+SELECT
+    partition,
+    name,
+    active
+FROM system.parts
+WHERE table = 'sales'
+
+There are two partitions in this example: 202001 and 202002.
+
+Let's break down the name of the first part: 20200129_20200131_1_2_1_4:
+
+
+5. File
+The File table engine keeps the data in a file in one of the supported file formats 
+Usage examples:
+⦁	Data export from ClickHouse to file.
+⦁	Convert data from one format to another.
+⦁	Updating data in ClickHouse via editing a file on a disk.
+Syntax:
+File(Format)
+
+The Format parameter specifies one of the available file formats. To perform SELECT queries, the format must be supported for input, and to perform INSERT queries -- for output.
+
+ClickHouse does not allow to specify filesystem path for File. It will use folder defined by Path setting in server configuration.
+
+Vi  /etc/clickhouse-server/config.xml
+<compression>
+    <case>
+      <min_part_size>...</min_part_size>
+      <min_part_size_ratio>...</min_part_size_ratio>
+      <method>...</method>
+    </case>
+    ...
+</compression>
+
+You can configure multiple <case> sections.
+
+Actions when conditions are met:
+⦁	If a data part matches a condition set, ClickHouse uses the specified compression method.
+⦁	If a data part matches multiple condition sets, ClickHouse uses the first matched condition set.
+CREATE TABLE bird.file_engine (`OA_timestamp` DateTime DEFAULT NOW(), 
+`_id` Date DEFAULT CAST(NOW(), 'Date'), 
+`Returned` Nullable(String) , 
+`Order ID2` Nullable(String) , 
+`Person` Nullable(String) , 
+`Region2` Nullable(String) , 
+`RowID` Nullable(Float64) , 
+`Order ID` Nullable(String) , 
+`Order Date` Nullable(DateTime) , 
+`Ship Date` Nullable(DateTime), 
+`Ship Mode` Nullable(String) , 
+`Customer ID` Nullable(String) , 
+`Customer Name` Nullable(String) , 
+`Segment` Nullable(String) , 
+`Country` Nullable(String) , 
+`City` Nullable(String) , 
+`State` Nullable(String) , 
+`Postal Code` Nullable(Float64) , 
+`Region` Nullable(String) , 
+`Product ID` Nullable(String) , 
+`Category` Nullable(String) , 
+`Sub-Category` Nullable(String) , 
+`Product Name` Nullable(String) , 
+`Sales` Nullable(Float64) , 
+`Quantity` Nullable(Float64) , 
+`Discount` Nullable(Float64) , 
+`Profit` Nullable(Float64) ) 
+ENGINE = File(CSV)
+
+INSERT data::
+
+INSERT INTO bird.sample_old (OA_timestamp,`_id`,Returned,`Order ID2`,Person,Region2,RowID,`Order ID`,`Order Date`,`Ship Date`,`Ship Mode`,`Customer ID`,`Customer Name`,Segment,Country,City,State,`Postal Code`,Region,`Product ID`,Category,`Sub-Category`,`Product Name`,Sales,Quantity,Discount,Profit) 
+VALUES(
+ NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-100762','Kelly Williams','Central',6316,'CA-2014-100762','2014-11-24 05:30:00','2014-11-29 05:30:00','Standard Class','NG-18355','Nat Gilpin','Corporate','United States','Jackson','Michigan',49201,'Central','OFF-LA-10003930','Office Supplies','Labels','Dot Matrix Printer Tape Reel Labels, White, 5000/Box',196.62,2,0,96.3438) ,
+(NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-100762','Kelly Williams','Central',6317,'CA-2014-100762','2014-11-24 05:30:00','2014-11-29 05:30:00','Standard Class','NG-18355','Nat Gilpin','Corporate','United States','Jackson','Michigan',49201,'Central','OFF-PA-10001815','Office Supplies','Paper','Xerox 1885',144.12,3,0,69.1776) ,
+ (NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-100762','Kelly Williams','Central',6318,'CA-2014-100762','2014-11-24 05:30:00','2014-11-29 05:30:00','Standard Class','NG-18355','Nat Gilpin','Corporate','United States','Jackson','Michigan',49201,'Central','OFF-PA-10004082','Office Supplies','Paper','Adams Telephone Message Book w/Frequently-Called Numbers Space, 400 Messages per Book',15.96,2,0,7.98) , 
+(NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-100762','Kelly Williams','Central',6315,'CA-2014-100762','2014-11-24 05:30:00','2014-11-29 05:30:00','Standard Class','NG-18355','Nat Gilpin','Corporate','United States','Jackson','Michigan',49201,'Central','OFF-AR-10000380','Office Supplies','Art','Hunt PowerHouse Electric Pencil Sharpener, Blue',151.92,4,0,45.576) ,
+ (NOW(), CAST(NOW(), 'Date'),'Yes','CA-2014-100867','Anna Andreadi','West',9462,'CA-2014-100867','2014-10-19 05:30:00','2014-10-24 05:30:00','Standard Class','EH-14125','Eugene Hildebrand','Home Office','United States','Lakewood','California',90712,'West','TEC-PH-10004922','Technology','Phones','RCA Visys Integrated PBX 8-Line Router',321.552,6,0.2,20.097) ;
+ 
+By default ClickHouse will create folder /var/lib/clickhouse/data/bird/file_engine.
+ 
+# cat data.CSV
+
+ Query the data
+Select * from bird.table_engine
+Details of Implementation 
+⦁	Multiple SELECT queries can be performed concurrently, but INSERT queries will wait each other.
+⦁	Supported creating new file by INSERT query.
+⦁	If file exists, INSERT would append new values in it.
+⦁	Not supported:
+⦁	ALTER
+⦁	SELECT ... SAMPLE
+⦁	Indices
+⦁	Replication
+
+6. NULL
+When writing to a Null table, data is ignored. When reading from a Null table, the response is empty.
+However, you can create a materialized view on a Null table. So the data written to the table will end up in the view.
+7. Set
+a) A data set that is always in RAM. It is intended for use on the right side of the IN operator (see the section "IN operators").
+b) You can use INSERT to insert data in the table. 
+c) New elements will be added to the data set, while duplicates will be ignored. But you can't perform SELECT from the table. 
+d) The only way to retrieve data is by using it in the right half of the IN operator.
+When starting the server, this data is loaded to RAM. After restarting the data remains in place.
+For a rough server restart, the block of data on the disk might be lost or damaged. In the latter case, you may need to manually delete the file with damaged data.
+
+8. View
+
+Used for implementing views , It does not store data, but only stores the specified SELECT query. When reading from a table, it runs this query (and deletes all unnecessary columns from the query).
+
+9. Materialized View
+
+For storing data, it uses a different engine that was specified when creating the view. When reading from a table, it just uses this engine.
+
+10.Join
+
+Prepared data structure for using in JOIN operations.
+
+Syntax:
+CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
+(
+    name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1] [TTL expr1],
+    name2 [type2] [DEFAULT|MATERIALIZED|ALIAS expr2] [TTL expr2],
+) ENGINE = Join(join_strictness, join_type, k1[, k2, ...])
+
+
+Enter join_strictness and join_type parameters without quotes, for example, Join(ANY, LEFT, col1). They must match the JOIN operation that the table will be used for. If the parameters don't match, ClickHouse doesn't throw an exception and may return incorrect data.
+
+Example ::
+
+Create left side table
+Already sales table is exists with merge tree engine.
+
+Create right side table
+
+create super store table with 5 records.
+CREATE TABLE bird.joins 1(`OA_timestamp` DateTime DEFAULT NOW(), 
+2`_id` Date DEFAULT CAST(NOW(), 'Date'), 
+3`Returned` Nullable(String) , 
+4`Order ID2` Nullable(String) , 
+5`Person` Nullable(String) , 
+6`Region2` Nullable(String) , 
+7`RowID` Nullable(Float64) , 
+8`Order ID` Nullable(String) , 
+9`Order Date` Nullable(DateTime) , 
+10`Ship Date` Nullable(DateTime), 
+11`Ship Mode` Nullable(String) , 
+12`Customer ID` Nullable(String) , 
+13`Customer Name` Nullable(String) , 
+14`Segment` Nullable(String) , 
+15`Country` Nullable(String) , 
+16`City` Nullable(String) , 
+17`State` Nullable(String) , 
+18`Postal Code` Nullable(Float64) , 
+19`Region` Nullable(String) , 
+20`Product ID` Nullable(String) , 
+21`Category` Nullable(String) , 
+22`Sub-Category` Nullable(String) , 
+23`Product Name` Nullable(String) , 
+24`Sales` Nullable(Float64) , 
+25`Quantity` Nullable(Float64) , 
+26`Discount` Nullable(Float64) , 
+27`Profit` Nullable(Float64) ) 
+ENGINE = Join(ANY, LEFT, id)
+
+Insert data 
+
+Note::
+You can use INSERT to add data to the table, similar to the Set engine. For ANY, data for duplicated keys will be ignored. For ALL, it will be counted. You can’t perform SELECT directly from the table. The only way to retrieve data is to use it as the “right-hand” table for JOIN.
+
+
+Selecting and Inserting Data:
+You can use INSERT queries to add data to the Join-engine tables. If the table was created with the ANY strictness, data for duplicate keys are ignored. With the ALL strictness, all rows are added.
+
+Limitations and Settings:
+1.join_use_nulls
+Sets the type of JOIN behavior. When merging tables, empty cells may appear. ClickHouse fills them differently based on this setting.
+2. max_rows_in_join
+Limits the number of rows in the hash table that is used when joining tables.
+Limits the number of rows in the hash table that is used when joining tables.
+This settings applies to SELECT ... JOIN operations and the Join table engine.
+If a query contains multiple joins, ClickHouse checks this setting for every intermediate result.
+ClickHouse can proceed with different actions when the limit is reached. Use the join_overflow_mode setting to choose the action.
+
+3. max_bytes_in_join
+Limits the size in bytes of the hash table used when joining tables.
+This settings applies to SELECT ... JOIN operations and Join table engine.
+If the query contains joins, ClickHouse checks this setting for every intermediate result.
+ClickHouse can proceed with different actions when the limit is reached. Use join_overflow_mode settings to choose the action.
+Possible values:
+⦁	 Positive integer.
+⦁	 0 — Memory control is disabled.
+Default value: 0.
+
+
+4. join_overflow_mode
+Defines what action ClickHouse performs when any of the following join limits is reached:
+⦁	 ⦁	max_bytes_in_join
+⦁	 ⦁	max_rows_in_join
+Possible values:
+⦁	THROW — ClickHouse throws an exception and breaks operation.
+⦁	BREAK — ClickHouse breaks operation and doesn't throw an exception.
+Default value: THROW.
+
+5. join_any_take_last_row 
+Changes behavior of join operations with ANY strictness.
+Possible values:
+⦁	 0 — If the right table has more than one matching row, only the first one found is joined.
+⦁	 1 — If the right table has more than one matching row, only the last one found is joined.
+Default value: 0.
+
+11. Memory
+
+⦁	The Memory engine stores data in RAM, in uncompressed form.
+⦁	Data is stored in exactly the same form as it is received when read. In other words, reading from this table is completely free.
+⦁	Indexes are not supported.
+⦁	Maximal productivity (over 10 GB/sec) is reached on simple queries, because there is no reading from the disk, decompressing, or deserializing data.
+⦁	When restarting a server, data disappears from the table and the table becomes empty.
+⦁	The Memory engine is used by the system for temporary tables with external query data.
+
+12. Buffer
+Buffers the data to write in RAM, periodically flushing it to another table. During the read operation, data is read from the buffer and the other table simultaneously.
+Syntax:
+Buffer(database, table, num_layers, min_time, max_time, min_rows, max_rows, min_bytes, max_bytes)
+
+Engine parameters:
+⦁	 database – Database name. Instead of the database name, you can use a constant expression that returns a string.
+⦁	Table – Table to flush data to.
+⦁	num_layers – Parallelism layer. Physically, the table will be represented as num_layers of independent buffers. Recommended value: 16.
+⦁	min_time, max_time, min_rows, max_rows, min_bytes, and max_bytes – Conditions for flushing data from the buffer.
+⦁	Data is flushed from the buffer and written to the destination table if all the min* conditions or at least one max* condition are met.
+⦁	min_time, max_time – Condition for the time in seconds from the moment of the first write to the buffer.
+⦁	min_rows, max_rows – Condition for the number of rows in the buffer.
+⦁	min_bytes, max_bytes – Condition for the number of bytes in the buffer.
+
+CREATE TABLE bird.sales_buffer 
+AS bird.sales ENGINE = Buffer(bird, sales, 16, 10, 100, 10000, 1000000, 10000000, 100000000)
+
+⦁	Creating a 'bird.buffer' table with the same structure as 'bird.sales' and using the Buffer engine. When writing to this table, data is buffered in RAM and later written to the 'bird.sales' table. 16 buffers are created. The data in each of them is flushed if either 100 seconds have passed, or one million rows have been written, or 100 MB of data have been written; or if simultaneously 10 seconds have passed and 10,000 rows and 10 MB of data have been written. For example, if just one row has been written, after 100 seconds it will be flushed, no matter what. But if many rows have been written, the data will be flushed sooner.
+
+⦁	You can set empty strings in single quotation marks for the database and table name. This indicates the absence of a destination table. In this case, when the data flush conditions are reached, the buffer is simply cleared. This may be useful for keeping a window of data in memory.
+⦁	If the set of columns in the Buffer table doesn't match the set of columns in a subordinate table, a subset of columns that exist in both tables is inserted.
+⦁	If the types don't match for one of the columns in the Buffer table and a subordinate table, an error message is entered in the server log and the buffer is cleared. The same thing happens if the subordinate table doesn't exist when the buffer is flushed.
+⦁	If the server is restarted abnormally, the data in the buffer is lost.
+⦁	When adding data to a Buffer, one of the buffers is locked. This causes delays if a read operation is simultaneously being performed from the table.
+
+Note : That it doesn't make sense to insert data one row at a time, even for Buffer tables. This will only produce a speed of a few thousand rows per second, while inserting larger blocks of data can produce over a million rows per second
+
+
+13. CollapsingMergeTree
+The engine inherits from MergeTree and adds the logic of rows collapsing to data parts merge algorithm.
+CollapsingMergeTree asynchronously deletes (collapses) pairs of rows if all of the fields in a sorting key (ORDER BY) are equivalent excepting the particular field Sign which can have 1 and -1 values. Rows without a pair are kept.
+Syntax:
+CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
+(
+    name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1],
+    name2 [type2] [DEFAULT|MATERIALIZED|ALIAS expr2],
+    ...
+) ENGINE = CollapsingMergeTree(sign)
+[PARTITION BY expr]
+[ORDER BY expr]
+[SAMPLE BY expr]
+[SETTINGS name=value, ...]
+
+CollapsingMergeTree Parameters
+sign — Name of the column with the type of row: 1 is a "state" row, -1 is a "cancel" row.
+Column data type — Int8
+
+CREATE TABLE UAct
+(
+    UserID UInt64,
+    PageViews UInt8,
+    Duration UInt8,
+    Sign Int8
+)
+ENGINE = CollapsingMergeTree(Sign)
+ORDER BY UserID
+INSERT INTO UAct VALUES (4324182021466249494, 5, 146, 1)
+
+INSERT INTO UAct VALUES (4324182021466249494, 5, 146, -1),(4324182021466249494, 6, 185, 1)
+
+INSERT INTO bird.UAct VALUES (4324182021466249494, 7, 196, -1),(4324182021466249494, 8, 175, 1);
+ 
+
+
+
+14. URL
+
+Manages data on a remote HTTP/HTTPS server. This engine is similar to the File engine.
+
+The format must be one that ClickHouse can use in SELECT queries and, if necessary, in INSERTs.
+
+The specified URL must point to a server that uses HTTP or HTTPS.
+
+INSERT and SELECT queries are transformed to POST and GET requests, respectively. For processing POST requests, the remote server must support Chunked transfer encoding (is a streaming data transfer mechanism of the HTTP )
+You can limit the maximum number of HTTP GET redirect hops using the max_http_get_redirects setting.
+Ex::
+
+CREATE TABLE bird.url_engine (`OA_timestamp` DateTime DEFAULT NOW(), 
+`_id` Date DEFAULT CAST(NOW(), 'Date'), 
+`Returned` Nullable(String) , 
+`Order ID2` Nullable(String) , 
+`Person` Nullable(String) , 
+`Region2` Nullable(String) , 
+`RowID` Nullable(Float64) , 
+`Order_ID` Nullable(String) , 
+`Order Date` Nullable(DateTime) , 
+`Ship Date` Nullable(DateTime), 
+`Ship Mode` Nullable(String) , 
+`Customer ID` Nullable(String) , 
+`Customer Name` Nullable(String) , 
+`Segment` Nullable(String) , 
+`Country` Nullable(String) , 
+`City` Nullable(String) , 
+`State` Nullable(String) , 
+`Postal Code` Nullable(Float64) , 
+`Region` Nullable(String) , 
+`Product ID` Nullable(String) , 
+`Category` Nullable(String) , 
+`Sub-Category` Nullable(String) , 
+`Product Name` Nullable(String) , 
+`Sales` Nullable(Float64) , 
+`Quantity` Nullable(Float64) , 
+`Discount` Nullable(Float64) , 
+`Profit` Nullable(Float64) ) 
+ENGINE = URL('http://192.168.0.16:9111/ HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV"HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV"' HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV"HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV", HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV"HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV" HYPERLINK "http://192.168.0.16:9111/',CSV"CSV)
+
+15. Distributed::
+
+ The Distributed engine does not store data itself,but allows distributed query processing on multiple servers .
+
+The Distributed engine accepts parameters:
+⦁	 The cluster name in the server's config file
+⦁	 The name of a remote database
+⦁	 The name of a remote table
+⦁	 (optionally) sharding key
+⦁	 (optionally) policy name, it will be used to store temporary files for async send
+
+Multi fact queries::
+
+--/*sum of budget*/
+SELECT SUM(budget)
+FROM TVishnuhub.budget; 
+--/*sum of sales in voice*/
+SELECT SUM(sales_invoice.gross_sales_home_curr)
+FROM TVishnuhub.sales_invoice; 
+--/*budget.company_code by company_master.company_code*/
+SELECT budget.company_code, company_master.company_code
+FROM TVishnuhub.budget
+LEFT JOIN TVishnuhub.company_master ON budget.company_code = company_master.company_code
+ORDER BY budget.company_code;
+--/*budget.lob_id by lob_master.lob_id*/
+SELECT budget.lob_id, lob_master.lob_id
+FROM TVishnuhub.budget
+LEFT JOIN TVishnuhub.lob_master ON budget.lob_id = lob_master.lob_id
+ORDER BY budget.lob_id;
+--/*budget.sales_office_id by sales_office_master.sales_office_id*/
+SELECT budget.sales_office_id , sales_office_master.sales_office_id
+FROM TVishnuhub.budget
+LEFT JOIN TVishnuhub.sales_office_master ON budget.sales_office_id = sales_office_master.sales_office_id
+ORDER BY budget.sales_office_id;
+--/*budget.sales_rep_id by sales_rep_master.sales_rep_id*/
+SELECT budget.sales_rep_id  , sales_rep_master.sales_rep_id
+FROM TVishnuhub.budget
+LEFT JOIN TVishnuhub.sales_rep_master ON budget.sales_rep_id  = sales_rep_master.sales_rep_id
+ORDER BY budget.sales_rep_id ;
+
+
+--/*sales_invoice.company_code by company_master.company_code*/
+SELECT sales_invoice.company_code, company_master.company_code
+FROM TVishnuhub.sales_invoice
+LEFT JOIN TVishnuhub.company_master ON sales_invoice.company_code = company_master.company_code
+ORDER BY sales_invoice.company_code;
+--/*sales_invoice.lob_id by lob_master.lob_id*/
+SELECT sales_invoice.lob_id, lob_master.lob_id
+FROM TVishnuhub.sales_invoice
+LEFT JOIN TVishnuhub.lob_master ON sales_invoice.lob_id = lob_master.lob_id
+ORDER BY sales_invoice.lob_id;
+--/*sales_invoice.sales_office_id by sales_office_master.sales_office_id*/
+SELECT sales_invoice.sales_office_id , sales_office_master.sales_office_id
+FROM TVishnuhub.sales_invoice
+LEFT JOIN TVishnuhub.sales_office_master ON sales_invoice.sales_office_id = sales_office_master.sales_office_id
+ORDER BY sales_invoice.sales_office_id;
+--/*sales_invoice.sales_rep_id by sales_rep_master.sales_rep_id*/
+SELECT sales_invoice.sales_rep_id  , sales_rep_master.sales_rep_id
+FROM TVishnuhub.sales_invoice
+LEFT JOIN TVishnuhub.sales_rep_master ON sales_invoice.sales_rep_id  = sales_rep_master.sales_rep_id
+ORDER BY sales_invoice.sales_rep_id ;
+--/*sales_invoice.sales_rep_id by sales_rep_master.sales_rep_id*/
+SELECT sales_invoice.department_id  , department_master.department_id
+FROM TVishnuhub.sales_invoice
+LEFT JOIN TVishnuhub.department_master ON sales_invoice.department_id  = department_master.department_id
+ORDER BY sales_invoice.department_id;
+
+join
+
+SELECT sum(a.budget), b.company_name 
+from TVishnuhub.budget a 
+left join TVishnuhub.company_master b on (a.company_code  = b.company_code)
+left join TVishnuhub.lob_master c on (a.lob_id = c.lob_id)
+left join TVishnuhub.sales_office_master d on (a.sales_office_id = d.sales_office_id )
+left join TVishnuhub.sales_rep_master e on (a.sales_rep_id = e.sales_rep_id )
+group by b.company_name with ROLLUP  
+
+to check the difference
+
+SELECT sum(a.budget),3149127-sum(a.budget)
+from TVishnuhub.budget a 
+left join TVishnuhub.company_master b on (a.company_code  = b.company_code)
+
+group by b.company_name with ROLLUP 
+
+ Postgresql database backup using Cron job 
+
+
+Steps to be followed to take the backup of Postgresql database automatically
+
+Shell script to take backup:
+
+sudo docker exec -it birdpost bash
+
+Write a shell script in the location which the user wants. eg:/opt/bindu.
+a. Create an empty file using the following command
+           vi /opt/backup/test.sh
+
+b. Paste the below lines in that created test.sh file, then save and exit from vi editor using Esc and :wq. 
+#!/bin/bash
+mkdir /opt/pg_backup$(date +%Y-%m-%d)
+cd /opt/pg_backup$(date +%Y-%m-%d)
+su - postgres
+pg_dump -U postgres -f bird35.sql bird35
+
+
+In the above script we are taking backup of bird35 database.
+Exit
+sudo su
+Type the below command to open crontab file 
+crontab –e 
+The crontab opens up in one of the editor, in that enter cron expression and path to the script which we wrote before as shown in the below screenshot .
+
+Then save and exit from crontab.
+
+21 11 * * *  docker exec birdpost /opt/backup/test.sh
+
+As shown in the above screenshot, cron expression executes and database will be back up according to cron expression.
+It takes backup everyday at 11:21am.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+POSTGRESQL
+
+
+                                        About bird database
+
+1. create trigger functions and make owner to postgres
+         
+2. create tables and make owner to postgres
+
+3. alter every table and make id as default
+
+4. insert the data
+
+5. select pg_catalog.setval
+
+6. Alter table add constraint and primary and unique key
+
+7. create index using btree
+
+8. create trigger
+
+9. Alter table add constraint and foreign key
+
+10. grant all on table to public
+
+11. alter default privileges for role postgres
+
+12. alter table cu_shared_model_audit
+
+
+copy the tables as csv in command line
+
+# su – postgres
+# psql birdmulti postgres
+
+
+For Client-Side Export:
+# \copy (SELECT * FROM public.client_license where client_id=3) to '/var/lib/postgresql/client_license.csv' with csv
+
+For Server-Side Export:
+copy (SELECT * FROM public.client_license where client_id=3) to '/var/lib/postgresql/client_license.csv' with csv
+
+
+download(export) all the tables which as client_id 
+SQL script::
+
+
+
+
+--download client_license with  client_id=5
+copy (SELECT * FROM public.client_license where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/client_license.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.client_partner  client_id=5
+copy (SELECT * FROM public.client_partner where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/client_partner.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.cp_feature_access  client_id=5
+copy (SELECT * FROM public.cp_feature_access where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/cp_feature_access.csv'  WITH (FORMAT CSV, HEADER);
+
+--download  public.cp_groups client_id=5
+copy (SELECT * FROM  public.cp_groups where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/cp_groups.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.cu_connection_access client_id=5
+copy (SELECT * FROM  public.cu_connection_access where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/cu_connection_access.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.cu_connections client_id=5
+copy (SELECT * FROM  public.cu_connections where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/cu_connections.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.cu_report_visualization client_id=5
+copy (SELECT * FROM  public.cu_report_visualization where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/cu_report_visualization.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.cu_user_groups client_id=5
+copy (SELECT * FROM  public.cu_user_groups where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/cu_user_groups.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.data_entity client_id=5
+copy (SELECT * FROM  public.data_entity where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/data_entity.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.data_hub client_id=5
+copy (SELECT * FROM  public.data_hub where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/data_hub.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.data_model client_id=5
+copy (SELECT * FROM  public.data_model where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/data_model.csv'  WITH (FORMAT CSV, HEADER);
+
+
+
+
+--download public.data_model_entity client_id=5
+copy (SELECT * FROM  public.data_model_entity where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/data_model_entity.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.es_temp client_id=5
+copy (SELECT * FROM  public.es_temp where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/es_temp.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.ml_temp client_id=5
+copy (SELECT * FROM  public.ml_temp where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/ml_temp.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.password_policy_rules client_id=5
+copy (SELECT * FROM  public.password_policy_rules where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/password_policy_rules.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.user_account client_id=5
+copy (SELECT * FROM  public.user_account where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/user_account.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.user_role client_id=5
+copy (SELECT * FROM  public.user_role where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/user_role.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.workspace client_id=5
+copy (SELECT * FROM  public.workspace where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/workspace.csv'  WITH (FORMAT CSV, HEADER);
+
+--download public.workspace_entity client_id=5
+copy (SELECT * FROM  public.workspace_entity where client_id=5) to '/var/lib/postgresql/birdmulti$(date +%Y-%m-%d)_client_5/workspace_entity.csv'  WITH (FORMAT CSV, HEADER);
+
+import the data 
+
+COPY public.client_license
+(client_id, license_key, create_by, create_date, update_by, update_date) 
+FROM '/var/lib/postgresql/bird_multi2020-02-25/client_license.csv' DELIMITER ',' CSV HEADER;
+
+copy public.client_partner
+(client_name, client_desc, partner_id, is_partner, client_access_type, client_access_key, client_admin_email, partner_admin_email, status, 
+"comments", create_date, create_by, update_date, update_by, mail_smtp, mail_port, mail_email, mail_authenticate, 
+mail_password, mail_connection_type, cp_var1, cp_var2, cp_var3, cp_var4, cp_var5, bird_message, audit_enabled, data_age_number, 
+data_age_duration, singlesignon_config, email_disclaimer_message, datahub_db_name, dataws_db_name, datadm_db_name) 
+from '/var/lib/postgresql/bird_multi2020-02-25/client_partner.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.cp_feature_access
+(feature_id, group_id, feature_display_name, client_id, role_id, permissions, user_id, status, create_by, create_date, update_by, update_date)
+  from '/var/lib/postgresql/bird_multi2020-02-25/cp_feature_access.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.cp_groups
+(group_name, group_desc, status, client_id, role_id, create_by, create_date, update_by, update_date)
+ from '/var/lib/postgresql/bird_multi2020-02-25/cp_groups.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.cu_connection_access
+(connection_id, user_id, client_id, connection_access_name, connection_json, status, create_date, update_date, acc_var1, acc_var2, acc_var3, create_by, update_by, isfrom_model) 
+from '/var/lib/postgresql/bird_multi2020-02-25/cu_connection_access.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.cu_connections
+(client_id, connection_name, connection_display_name, connection_details_json, connection_type, connection_type_id, create_date) 
+from '/var/lib/postgresql/bird_multi2020-02-25/cu_connections.csv' DELIMITER ',' CSV HEADER;
+
+
+copy  public.cu_report_visualization
+(user_id, client_id, report_visualization_name, report_visualization_desc, is_storyboard, es_report_type, es_report_index, report_title, folder_name, report_columns, 
+user_favorite, is_shared, shared_to_users, shared_comments, view_count, curt_var1, curt_var2, curt_var3, curt_var4, curt_var5, status, visualization_details_json, visualization_type, 
+create_by, create_date, update_by, update_date, filter_object, view_only, meta_data_audit, filter_script, custom_fields_script, drill_through_reports, smart_insights_data, 
+ml_visualization_details_json, ml_model_data, ml_snapshot_data, is_ml_saved, ml_last_run_time, ml_error_info, renamed_field_json, custom_fields_json, 
+custom_measures_json, data_model_id, updated_changes_in_report)
+from '/var/lib/postgresql/bird_multi2020-02-25/cu_report_visualization.csv' DELIMITER ',' CSV HEADER;
+
+
+copy  public.cu_user_groups
+(user_id, group_id, client_id, status, create_date, update_date, create_by, update_by)
+ from '/var/lib/postgresql/bird_multi2020-02-25/cu_user_groups.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.data_entity
+(user_id, client_id, entityname, connection_access_id, indexname, type_name, entity_columns, excel_meta_data, excel_files_order, actualquery, 
+savedquery, sync_time_taken, unique_columns, refresh_type, last_executed_timestamp, sync_object, status, entity_type, isfrom_model, offsetvalue, 
+created_date, update_date, sync_status, source_entityname, data_sync_details, create_by, update_by)
+ from '/var/lib/postgresql/bird_multi2020-02-25/data_entity.csv' DELIMITER ',' CSV HEADER;
+
+
+copy  public.data_hub
+(data_hub_name, client_id, user_id, sync_config, created_date, updated_date, status, data_sync_details)
+from '/var/lib/postgresql/bird_multi2020-02-25/data_hub.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.data_model
+(user_id, client_id, "name", description, create_date, create_by, update_date, update_by, status, multi_fact, workspace_id, 
+"index", "columns", is_shared, model_active_status, created_view) 
+from '/var/lib/postgresql/bird_multi2020-02-25/data_model.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.data_model_entity
+(data_model_id, user_id, client_id, entity_type, query, fact, "index", "type", "columns", create_date, create_by, 
+update_date, update_by, status, workspace_entity_id, connection_access_id, customfields, filters, entity_name) 
+from '/var/lib/postgresql/bird_multi2020-02-25/data_model_entity.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.es_temp
+(client_id, user_id, es_report_index, es_temp_type, query, connection_details, excel_meta_data, 
+report_columns, excel_files_order, create_date, update_date, create_by, update_by, is_direct, custom_fields_script, data_model_id, reporttype) 
+from '/var/lib/postgresql/bird_multi2020-02-25/es_temp.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.ml_temp
+(client_id, user_id, ml_snapshot_data, ml_model_data, ml_error_info, create_date)
+from '/var/lib/postgresql/bird_multi2020-02-25/ml_temp.csv' DELIMITER ',' CSV HEADER;
+
+
+copy  public.password_policy_rules
+(client_id, min_max_length, min_no_of_lowercase_characters, min_no_of_uppercase_characters, min_no_of_digits, min_no_of_special_characters, 
+allow_whitespaces, retention_period, two_factor_authentication, no_of_login_faild_attempts)
+from '/var/lib/postgresql/bird_multi2020-02-25/password_policy_rules.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.user_account
+(client_id, ldap_id, role_id, group_id, user_first_name, user_last_name, user_login_name, business_layer_enabled, user_password, user_email, 
+user_address, user_phone_number, status, role_name, reset_password, create_date, create_by, update_date, update_by, ua_var1, ua_var2, ua_var3, ua_var4, 
+ua_var5, last_reset_time, user_ip_address, one_time_password, last_login_date_time, login_faild_attempts, forgot_password, firsttimeresetpassword, 
+security_questions_answers, resetpw_from_admin) 
+from '/var/lib/postgresql/bird_multi2020-02-25/user_account.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.user_role
+(role_name, role_desc, role_displayname, parent_role_id, status, client_id, create_date, update_date, create_by, update_by)
+ from '/var/lib/postgresql/bird_multi2020-02-25/user_role.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.workspace
+(user_id, client_id, workspace_name, workspace_desc, create_date, create_by, update_date, 
+update_by, status, hub_id, is_default, sync_config, data_sync_details, ws_save_status) 
+from '/var/lib/postgresql/bird_multi2020-02-25/workspace.csv' DELIMITER ',' CSV HEADER;
+
+
+copy public.workspace_entity
+(user_id, client_id, entity_name, "type", "columns", filters, customfields, query, create_by, create_date, update_by, 
+update_date, status, connection_access_id, fact, workspace_id, indexname, data_hub_entity_id, isfrom_model,
+ ws_entity_save_status, error_info)
+ from '/var/lib/postgresql/bird_multi2020-02-25/workspace_entity.csv' DELIMITER ',' CSV HEADER;
+
+
+shell script for client_3 and client_5
+
+refer the document for the postgres databse to export the data from birdmulti
+
+home/ss1014/Documents/new/client_3.txt
+ home/ss1014/Documents/new/client_5.txt
+
+
+
+cron job for the database to export the data of client_3 & client_5
+
+30 10 * * *  docker exec birdpost /opt/backup/client_3.sh
+35 10 * * *  docker exec birdpost /opt/backup/client_5.sh
+
+
+
+
+
+
+
+                                             TEST SENSU 
+
+Install Sensu Monitoring Tool on Ubuntu 18.04
+
+sudoSet server hostname, ntp, and update
+Always start your installations by updating system package to the latest version
+
+apt-get update
+sudo apt update
+Wait for the server to come up then set hostname
+sudo reboot
+sudo hostnamectl set-hostname sensu.birdoncloud.com
+Setup NTP and Timezone
+sudo timedatectl set-timezone Asia/Kolkata
+Install ntp package
+sudo apt -y install ntp
+Show ntp status
+ntpq -p
+ Install Redis and RabbitMQ
+wget -O- https://sensu.global.ssl.fastly.net/apt/pubkey.gpg | sudo apt-key add -
+Install RabbitMQ
+already have docker 
+go into docker
+docker exec -it rabbitmq server bash
+ rabbitmqctl add_vhost /sensu
+rabbitmqctl add_user sensu  BIRDWelcome@123
+
+rabbitmqctl set_permissions -p /sensu sensu ".*" ".*" ".*"
+
+exit from docker
+
+Install Redis Server
+sudo apt -y install redis-server
+Install and Configure Sensu
+echo "deb https://sensu.global.ssl.fastly.net/apt bionic main" | sudo tee /etc/apt/sources.list.d/sensu.list
+Import repository GPG key
+wget -O- https://sensu.global.ssl.fastly.net/apt/pubkey.gpg | sudo apt-key add -
+Update package index and install sensu
+sudo apt update
+sudo apt -y install sensu
+Create sensu configuration file for connecting to RabbitMQ, API and Redis
+  sudo nano /etc/sensu/conf.d/api.json
+{
+  "api": {
+    "host": "localhost",
+    "bind": "0.0.0.0",
+    "port": 4567
+  }
+}
+
+ 
+ sudo nano /etc/sensu/conf.d/rabbitmq.json
+
+
+
+{
+  "rabbitmq": {
+    "host": "192.168.0.16",
+    "port": 6111,
+    "vhost": "/sensu",
+    "user": "sensu",
+    "password": "BIRDWelcome@123"
+  }
+}
+
+ sudo nano /etc/sensu/conf.d/redis.json
+{
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6379
+  }
+}
+
+
+Install and Configure Uchiwa Sensu web interface
+
+  sudo apt -y install uchiwa
+Create configuration file
+
+  sudo nano /etc/sensu/conf.d/uchiwa.json
+{
+  "sensu": [
+    {
+      "name": "sensu. HYPERLINK "http://sensu.example.com/" HYPERLINK "http://sensu.example.com/" HYPERLINK "http://sensu.example.com/" HYPERLINK "http://sensu.example.com/"HYPERLINK "http://sensu.example.com/" HYPERLINK "http://sensu.example.com/" HYPERLINK "http://sensu.example.com/"birdoncloud HYPERLINK "http://sensu.example.com/" HYPERLINK "http://sensu.example.com/" HYPERLINK "http://sensu.example.com/" HYPERLINK "http://sensu.example.com/"HYPERLINK "http://sensu.example.com/" HYPERLINK "http://sensu.example.com/" HYPERLINK "http://sensu.example.com/".com",
+      "host": "192.168.0.16",
+      "port": 4567,
+      "timeout": 10
+    }
+  ],
+  "uchiwa": {
+    "host": "0.0.0.0",
+    "port": 3000,
+    "refresh": 10,
+    "user": "admin",
+    "pass": "BIRDWelcome@123"
+  }
+}
+
+  sudo nano /etc/sensu/conf.d/client.json
+{
+  "client": {
+    "environment": "development",
+    "name": "sensu-server",
+    "address": "127.0.0.1",
+    "subscriptions": [
+      "development",
+      "sensu-server"
+    ]
+  }
+}
+
+Set permissions:
+  sudo chown sensu. /etc/sensu/conf.d/*
+Start Sensu Service
+
+  sudo systemctl enable sensu-server
+  sudo systemctl enable sensu-api
+  sudo systemctl enable sensu-client
+  sudo systemctl enable uchiwa
+  sudo systemctl start sensu-server
+  sudo systemctl start sensu-api
+  sudo systemctl start sensu-client
+  sudo systemctl start uchiwa
+  sudo systemctl status uchiwa
+Access Sensu Dashboard using
+http://[ip|hostname]:3000
+Plugin Installation & Configurations 
+ cd /opt/sensu/embedded/bin/
+
+ sudo sensu-install -p cpu-checks
+  sudo sensu-install -p disk-checks
+ sudo sensu-install -p memory-checks
+  sudo sensu-install -p nginx
+  sudo sensu-install -p process-checks
+  sudo sensu-install -p load-checks
+  sudo sensu-install -p vmstats
+  sudo sensu-install -p mailer
+Configuring CPU Check File
+
+  sudo nano /etc/sensu/conf.d/check_cpu.json
+{
+"checks": {
+"check-cpu": {
+"handlers": ["mailer"],
+"command": "/opt/sensu/embedded/bin/check-cpu.rb -w 80 -c 90 ",
+"interval": 60,
+"occurrences": 5,
+"subscribers": [ "cpu" ]
+}
+}
+}
+Similarly, you can configure all the plugins as listed,
+
+  sudo nano /etc/sensu/conf.d/check_memory.json
+{
+"checks": {
+"check_memory_linux": {
+"handlers": ["mailer"],
+"command": "/opt/sensu/embedded/bin/check-memory-percent.rb -w 90 -c 95",
+"interval": 60,
+"occurrences": 5,
+"subscribers": [ "memory" ]
+}
+}
+Install git and clone metric relay.
+
+   sudo apt-get install -y git
+  git clone git://github.com/grepory/sensu-metrics-relay.git
+  cd sensu-metrics-relay
+  sudo cp -R lib/sensu/extensions/* /etc/sensu/extensions
+sudo nano /etc/sensu/conf.d/relay.json
+{
+         "relay": {
+            "graphite": {
+          "host": "localhost",
+          "port": 2003
+            }
+          }
+}
+Enable metrics checks
+
+sudo nano /etc/sensu/conf.d/metrics-vmstat.json
+{
+"checks": {
+"metric-vmstat": {
+"type": "metric",
+"command": "/opt/sensu/embedded/bin/metrics-vmstat.rb",
+"subscribers": ["linux"],
+"interval": 20,
+"handlers": ["relay"]
+
+}
+}
+}
+Setup Mail Handler
+sudo sensu-install -p mailer
+sudo nano  /etc/sensu/conf.d/handler_default.json
+{
+  "handlers": {
+    "default": {
+      "command": "/opt/sensu/embedded/bin/handler-mailer.rb",
+      "type": "pipe"
+    }
+  }
+}
+sudo nano /etc/sensu/conf.d/mailer.json
+{
+   mailer": {
+      "admin_gui": "http://localhost:3000/",
+      "delivery_method": "smtp",
+      "smtp_enable_starttls_auto": "true",
+      "smtp_authentication": "login",
+      "smtp_username": "sunilb@sriyamsoft.com",
+      "smtp_password": "********",
+      "mail_from": "sunilb@sriyamsoft.com",
+      "mail_to": "meghana@sriyamsoft.com",
+      "smtp_address": "smtp.office365.com",
+      "smtp_port": "587",
+      "smtp_domain": "sriyamsoft.com"
+    }
+}
+
+Steps to Capture the System Metrics into grafana
+
+Installing Carbon Cache
+sudo DEBIAN_FRONTEND=noninteractive apt -q -y --force-yes install graphite-carbon
+
+chmod 777 /etc/default/graphite-carbon
+
+echo "CARBON_CACHE_ENABLED=true" > /etc/default/graphite-carbon
+
+          service carbon-cache start
+Installing Graphite
+sudo apt install graphite-web apache2 libapache2-mod-wsgi -y
+sudo chown _graphite /var/lib/graphite
+sudo apt -y install python-dev python-pip libcairo2-dev libffi-dev build-essential
+Install Graphite along with all its components by running. 
+export PYTHONPATH="/opt/graphite/lib/:/opt/graphite/webapp/"
+sudo -H pip install --no-binary=:all: https://github.com/graphite-project/whisper/tarball/master
+ sudo -H pip install --no-binary=:all: https://github.com/graphite-project/carbon/tarball/master
+
+ sudo -H pip install --no-binary=:all: https://github.com/graphite-project/graphite-web/tarball/master
+
+Create an initial schema for Graphite by running the command.
+sudo -H PYTHONPATH=/opt/graphite/webapp django-admin migrate --settings=graphite.settings --run-syncdb
+Create superuser for Graphite by running the following command. You will need to provide a username, password, and email for this.
+
+ sudo -H PYTHONPATH=/opt/graphite/webapp django-admin createsuperuser –settings=graphite.settings
+username:root
+email: boctrainee@gmail.com
+password : Sriyamsoft@1
+Generate a static file for Graphite web app by running the command.
+sudo -H PYTHONPATH=/opt/graphite/webapp django-admin 
+collectstatic --noinput –settings=graphite.settings
+
+Finally, copy carbon configuration files by running.
+sudo cp /opt/graphite/conf/carbon.conf.example /opt/graphite/conf/carbon.conf
+
+sudo cp /opt/graphite/conf/storage-schemas.conf.example /opt/graphite/conf/storage-schemas.conf
+
+ Configure Apache with mod_wsgi
+sudo apt install -y apache2 libapache2-mod-wsgi
+
+sudo nano /opt/graphite/conf/graphite.wsgi
+import sys
+sys.path.append('/opt/graphite/webapp')
+from graphite.wsgi import application
+sudo chmod +x /opt/graphite/conf/graphite.wsgi
+sudo chown -R www-data:www-data /opt/graphite
+sudo nano /etc/apache2/sites-available/graphite-vhost.conf
+LoadModule wsgi_module modules/mod_wsgi.so
+⦁	WSGISocketPrefix /var/run/wsgi
+⦁	<VirtualHost *:80>
+⦁	ServerName graphite
+⦁	DocumentRoot "/opt/graphite/webapp"
+⦁	ErrorLog /opt/graphite/storage/log/webapp/error.log
+⦁	CustomLog /opt/graphite/storage/log/webapp/access.log common
+⦁	WSGIDaemonProcess graphite-web processes=5 threads=5 display-name='%{GROUP}' inactivity-timeout=120
+⦁	WSGIProcessGroup graphite-web
+⦁	WSGIApplicationGroup %{GLOBAL}
+⦁	WSGIImportScript /opt/graphite/conf/graphite.wsgi process-group=graphite-web application-group=%{GLOBAL}
+⦁	WSGIScriptAlias / /opt/graphite/conf/graphite.wsgi
+⦁	Alias /static/ /opt/graphite/static/
+⦁	<Directory /opt/graphite/static/>
+⦁	<IfVersion < 2.4>
+⦁	Order deny,allow
+⦁	Allow from all
+⦁	</IfVersion>
+⦁	<IfVersion >= 2.4>
+⦁	Require all granted
+⦁	</IfVersion>
+⦁	</Directory>
+⦁	<Directory /opt/graphite/conf/>
+⦁	<IfVersion < 2.4>
+⦁	Order deny,allow
+⦁	Allow from all
+⦁	</IfVersion>
+⦁	<IfVersion >= 2.4>
+⦁	Require all granted
+⦁	</IfVersion>
+⦁	</Directory>
+⦁	</VirtualHost>
+
+Disable default virtual host and enable the virtual host we just created by running.
+sudo a2dissite 000-default
+sudo a2ensite graphite-vhost
+Now restart Apache web server for changes to reflect.
+sudo systemctl restart apache2
+sudo cp /usr/share/graphite-web/apache2-graphite.conf /etc/apache2/sites-enabled/graphite.conf
+
+Installing Grafana
+# Adding repository to sources.list
+⦁	echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
+
+# Download GPG Key
+⦁	sudo curl https://packages.grafana.com/gpg.key | sudo apt-key add -
+# (Optional) Some older versions of Ubuntu/Debian may need apt-transport-https to fetch packages over HTTPS
+⦁	sudo apt install apt-transport-https -y
+# Updating packages and Installing Grafana
+⦁	sudo apt update && apt install grafana –y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                  SNOWFLAKE
+
+Snowfalke is the next generation command line client for connecting to snowalke to execute sql wueries and perform all Ddl and Dml operations,including loading data into and uploading data out of database tables
+
+
+
+Download SnowSQL and install it on all supported platforms. 
+The SnowSQL installer is provided as a file that can be downloaded from the 
+
+
+1. Create multiple users in snowflake?
+ Login to snowflake
+
+Security and account administrators (i.e. users with the SECURITYADMIN role or higher) can create and manage Snowflake users through SQL or the web interface
+Using the Web Interface:
+1.Click on Account  » Users.
+2.Click the Create button.
+3. In the User Name field, enter a unique identifier for the user.
+4. In the Password and Confirm Password fields, enter the login password for the user.
+5. Leave the Force Password Change checkbox selected to force the user to change their password on their next login; otherwise, clear the checkbox.
+6. Click the Next button. The Advanced screen opens.
+7. Optionally enter the Login Name, Display Name, and personal information for the user.
+8.Click the Next button. The Preferences screen opens.
+9.Optionally enter defaults for the user:
+⦁	Virtual warehouse
+⦁	Namespace in the form of db_name or db_name.schema_name
+⦁	Role
+10. Click the Finish button. Snowflake displays a success message.
+
+Create multiple users using above steps.
+
+
+Using SQL:
+
+CREATE USER user PASSWORD = '***************' LOGIN_NAME = 'user' DISPLAY_NAME = 'user' DEFAULT_ROLE = "SYSADMIN" DEFAULT_WAREHOUSE = 'USER_WH' DEFAULT_NAMESPACE = 'user_db' MUST_CHANGE_PASSWORD = TRUE;
+GRANT ROLE "SYSADMIN" TO USER user;
+
+2. Create database ,tables and load data in snowflake?
+
+Create database::
+Using the Web Interface:
+ 1.Click on Databases         . 
+2.Click the Create button.
+3. In the  Name field, enter a unique identifier for the user.
+4. Click the Finish button. Snowflake displays a success message.
+
+Using SQL:
+CREATE DATABASE test_db;
+
+Create table::
+Using the Web Interface:
+1.Click on database
+2.Click the Create button.
+3. In the  Table Name field, enter a unique identifier for the user.
+4. In the Schema name  enter the schema name for the user ex:: public .
+5. Click ADD and add the columns
+6. Click the Finish button. Snowflake displays a success message.
+
+Using SQL:
+CREATE TABLE "TEST_DB"."PUBLIC"."TESTING" ("ROWID" FLOAT, "Order ID" STRING, "Order Date" DATE, "Ship Date" DATE, "Ship Mode" STRING, "Customer ID" STRING, "Customer Name" STRING, "SEGMENT" STRING, "COUNTRY" STRING, "CITY" STRING, "STATE" STRING, "Postal Code" FLOAT, "REGION" STRING, "Product ID" STRING, "CATEGORY" STRING, "Sub-Category" STRING, "Product Name" STRING, "SALES" FLOAT, "QUANTITY" FLOAT, "DISCOUNT" FLOAT, "PROFIT" FLOAT);
+
+Load Data::
+Using the Web Interface:
+1.Click on database >> table
+2.Click the Load Data button.
+3.Select Warehouse >> Next
+3. In the  Source Files field, load files from your computer,select Files >>Next
+4. In the File Format select file format >> Next
+4. In the Schema name  enter the schema name for the user ex:: public .
+5. In the Load Options ( continue loading valid data from the file).
+6. Click the Load button. Snowflake displays a load results.
+
+Using SQL:
+PUT file:// HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"HYPERLINK "file://// HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file://// HYPERLINK "file:////<file_path>/store.csv"< HYPERLINK "file:////<file_path>/store.csv"file_path HYPERLINK "file:////<file_path>/store.csv"> HYPERLINK "file:////<file_path>/store.csv"/store.csv" HYPERLINK "file:////<file_path>/store.csv"/store.csv @TESTING/ui1584441574956
+COPY INTO "TEST_DB"."PUBLIC"."TESTING" FROM @/ui1584441574956 ON_ERROR = 'CONTINUE' PURGE = TRUE;
+
