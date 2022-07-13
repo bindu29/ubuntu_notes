@@ -1,0 +1,494 @@
+1. Bird rest password
+2. Join algorithm in clickhouse
+3. Split csv files in linux
+4. Insert data into clickhouse
+5. tomcat docker
+6. node_ exporter service file
+7. rstudio (add line in file to get remote access)
+8. create table in clickhouse
+9. Steps to create a backup script
+10. clickhouse backup from one server to another
+11. Open play credentials
+12. allow only few databases in newly created user in clickhouse
+13. Stream analytix credentials
+14. query for gamelogs
+15. Set timezone in linux server 
+16. Minio docker
+17. clickhouse latest (20.10.3.30)docker
+18. attach database in clickhouse
+19. stream analytix urls
+20. set max connections in postgres
+21. Create a keystore from an existing certificate 
+22. create a rabbitmq with certs
+23. Openssl for clickhouse
+24. Add disk to existing server
+25. Bird regular passwords
+26. Certification quotation
+27. mongodb csv insertion
+28. hubspot and airbyte slack credentials
+29. Minikube docker 
+30. set kubectl namespace
+31. mysql restore issue
+32. restore sqlserver databases
+33. Run docker compose file with ports
+34. ibm cloud servers shut down script
+35. cron expression
+36. Run stress
+37. silveroak and puyenpa credentials
+38. Copy files with pem file
+39. Disable USB drivers
+
+
+-----------------------------------------------------------------------
+Bird rest password
+
+#jdbc details
+bird.driverClassName = org.postgresql.Driver
+bird.url = jdbc:postgresql://184.173.41.123:5432/bird35
+bird.username = postgres
+bird.password = BIRDWelcome@123
+bird.userid= 3
+------------------------------------------------------------------------
+Join algorithm in clickhouse
+
+set join_algorithm = 'auto' 
+
+select * from telebuhub.Studios a
+left join telebuhub.Calls b on b.StudioId = a.Id 
+
+
+select * from system.settings
+order by name
+
+Specify join algorithm: 'auto', 'hash', 'partial_merge', 'prefer_partial_merge'. 'auto' tries to change HashJoin to MergeJoin on the fly to avoid out of memory.
+
+Specify join algorithm: 'auto', 'hash', 'partial_merge', 'prefer_partial_merge'. 'auto' tries to change HashJoin to MergeJoin on the fly to avoid out of memory.
+
+Set default strictness in JOIN query. Possible values: empty string, 'ANY', 'ALL'. If empty, query without strictness will throw exceptio
+
+<join_algorithm>merge</join_algorithm>
+---------------------------------------------------------------------------
+Split csv files in linux
+
+split --verbose -b500M activity_log.csv -additional-suffix=.csv  -----> split data through MB
+split --verbose -l 5000000 activity_log.csv openactivity -d --additional-suffix=.csv ----------> split data through lines
+---------------------------------------------------------------------------
+Insert data into clickhouse
+
+1. cat /var/lib/clickhouse/activity_log.csv |  sed 's/"NULL"/""/g' |sed 's/||/|/g' |sed -n '1,30000p' | cat > activity1.csv
+2. cat /var/lib/clickhouse/sq.csv | clickhouse-client  -u bird --password BIRDWelcome@123 --query="INSERT INTO ivr.wl (col1,col2,col3,col4,col5,col6,col7,col8,col9,col10 , col11 ) FORMAT CSV" FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n';
+3. cat /var/lib/clickhouse/player.journal.csv |  sed 's/"NULL"/""/g'  | clickhouse-client -u bird --password BIRDWelcome@123 --format_csv_delimiter='|' --format_csv_allow_single_quotes=0 -q  --query="INSERT INTO ivr.journal FORMAT CSVWithNames"
+4. cat /var/lib/clickhouse/logs.activity_log.csv |  sed 's/"NULL"/""/g'  | clickhouse-client -u bird --password BIRDWelcome@123 --format_csv_delimiter='|' --format_csv_allow_single_quotes=0 -q  --query="INSERT INTO ivr.activity_log FORMAT CSVWithNames"
+
+----------------------------------------------------------------------------
+tomcat docker 
+
+docker run -d --network=birdnet --restart=always -p 8080:8080 -p 8443:8443 --name tomcatbird35 tomcat:9.0.39-jdk8-openjdk
+----------------------------------------------------------------------------
+node_ exporter service file
+
+[Unit]
+Description=Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+ExecStart=/usr/local/bin/node_exporter
+
+[Install]
+WantedBy=multi-user.target
+----------------------------------------------------------------------------
+
+rstudio (add line in file to get remote access)
+
+options(shiny.port = 8011)
+options(shiny.host = '161.202.171.79')
+----------------------------------------------------------------------------
+create table in clickhouse 
+
+CREATE TABLE ivr.wl
+(
+
+ today() as OA_Date,
+now() as OA_timestamp,
+col1 Nullable(String),
+col2 Nullable(String),
+col3 Nullable(String),
+col4 Nullable(String),
+col5 Nullable(String),
+col6 Nullable(String),
+col7 Nullable(String),
+col8 Nullable(String)
+)
+ENGINE = MergeTree(OA_Date, OA_timestamp, 8192);
+
+
+CREATE TABLE test
+(
+id UInt32,
+name Nullable(String),
+site_code Nullable(String),
+network_code Nullable(String),
+operator_code Nullable(String),
+full_site_code Nullable(String),
+urls Nullable(String),
+configuration Nullable(String),
+platform Nullable(String),
+unique_id Nullable(String)
+) ENGINE = TinyLog;
+
+INSERT INTO default.test FORMAT JSONEachRow {"id": 1,"name": "Classic Rummy","site_code": "FM","network_code": "IRN","operator_code": "CZ","full_site_code": "FMIRNCZ","urls": "{site\": \"https://www.classicrummy.com/","configuration": "support\": \"support@classicrummy.com\"}","platform": "NULL","unique_id": "desktop"}
+
+-------------------------------------------------------------------------------
+Steps to create a backup script
+
+Step 1) Connect to clickhouse
+ Get the list of databases
+Step 2) detach each database
+Step 3) rsync it to destination server
+Step 4) restart source clickhouse
+Step 5) change ownership in destination server
+Step 6) restart destination clickhouse
+------------------------------------------------------------------------------
+clickhouse backup from one server to another
+
+rsync -auHxv --progress --numeric-ids bird@35.184.130.233:/var/lib/clickhouse/data/* /opt/test/data
+
+------------------------------------------------------------------------------
+Open play credentials
+
+Shabbir (Guest) for creator account pls find the credentials 
+Username: sukhdev.kaushik@openplaytech.com 
+Password: Openplay@123
+-------------------------------------------------------------
+allow only few databases in newly created user in clickhouse
+
+access_management 1 in users.xml 
+
+<!-- User can create other users and grant rights to them. -->
+            <access_management>1</access_management>
+
+add  access_control line in config.xml
+
+<access_control_path>/var/lib/clickhouse/access/</access_control_path>
+
+CREATE USER bird IDENTIFIED WITH sha256_password BY 'welcome@123'
+create database bird;
+create databases birdhub;
+create database birddm;
+create database birdws;
+create table bird.sales
+insert data
+set allow_introspection_functions=1
+grant all on bird.* to bird;
+
+only bird database is allowed in bird user
+select count(*) from sales
+-------------------------------------------------------------------------
+Stream analytics
+
+to download streamanlytics credentials
+iej72920@eoopy.com
+7yGaHthGP5M@
+
+
+http://161.202.171.73:8090/StreamAnalytix/
+
+username:superuser
+password: superuser
+
+To Access demo workspace
+username:demo
+password:demo
+---------------------------------------------------------------------------
+query for game logs
+select * from rummy_logs.gamelogs where key=7853 and key2=7787 and key3=0
+----------------------------------------------------------------
+Set timezone in linux server 
+apt update -y && apt install tzdata -y
+dpkg-reconfigure tzdata
+------------------------------------------------------------
+Minio docker 
+
+docker run -d --restart=always --name=minio -p 9010:9000 -e "MINIO_ACCESS_KEY=minio" -e "MINIO_SECRET_KEY=miniostorage" minio/minio:latest server /data
+-------------------------------------------------------------
+clickhouse latest docker
+docker run -d --network=birdnet --restart=always  -p 9000:9000 -p 8123:8123  --ulimit nofile=262144:262144 --volume=/opt/birdstore2:/var/lib/clickhouse --name birdstore35 yandex/clickhouse-server:20.10.3.30
+----------------------------------------------------------------
+attach databases in clickhouse
+ATTACH DATABASE defaulthub ENGINE = Ordinary;
+----------------------------------------------------------------
+stream analytix urls
+varun: http://161.202.171.67:8090/StreamAnalytix/
+vishnu : http://161.202.171.67:8092/StreamAnalytix/
+mahesh : http://161.202.171.67:8093/StreamAnalytix/
+venu : http://161.202.171.67:8094/StreamAnalytix/
+-----------------------------------------------------------------
+to remove files in react build ROOT
+rm -rf css/ docs/ fonts/ images/ img/ static/ asset-manifest.json favicon.ico index.html logo192.png logo512.png manifest.json robots.txt service-worker.js
+
+-----------------------------------------------------------------------
+vnc docker image with sound
+
+# sudo modprobe snd-aloop index=2
+# docker run -d --restart=always --name rdp -p 6080:80 -p 5900:5900 -e VNC_PASSWORD=Poor@logic19 --device /dev/snd -e ALSADEV=hw:2,0 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
+ --------------------------------------------------------------
+ set max connections in postgres
+ 
+ SHOW max_connections;
+ ALTER SYSTEM SET max_connections TO '500';
+ restart postgresql server
+ -----------------------------------------------------------------
+Step – 2: Create a keystore from an existing certificate 
+
+ 	# openssl pkcs12 -export -in star-openplaytech-com.crt -inkey star-openplaytech-com.key -out star-openplaytech-com.p12
+
+note: prompts for a password please enter password 
+          # keytool -importkeystore -srckeystore star-kofluence.com.p12 -srcstoretype PKCS12 -destkeystore star-kofluence.com.jks -deststoretype JKS
+
+            # keytool -importkeystore -srckeystore star-openplaytech-com.jks -destkeystore star-openplaytech-com.jks -deststoretype pkcs12
+
+note: prompts for a password please enter password (enter same password which was used before)
+
+ Step – 3: Change Connector configurations of port number 8443 in <Tomcat - Home>/conf/server.xml file as follows
+	# vi server.xml
+	      <Connector  protocol="org.apache.coyote.http11.Http11NioProtocol"
+                   port="8443" maxThreads="200"
+                   scheme="https" secure="true" SSLEnabled="true"
+                   keystoreFile="/usr/local/tomcat/SSL/star-openplaytech-com.jks"   keystorePass="birdinsights"
+            clientAuth="false" sslProtocol="TLS"/>
+-------------------------------------------------------------------------------------
+create rabbitmq with certs
+sudo docker run -d --restart=always  --name rabbitmq --hostname my-rabbit -p 5671:5671 -p 5672:5672 -p 15671:15671 -p 15672:15672 -e RABBITMQ_SSL_CERT_FILE=/cert_rabbitmq/server/cert.pem -e RABBITMQ_SSL_KEY_FILE=/cert_rabbitmq/server/key.pem -e RABBITMQ_SSL_CA_FILE=/cert_rabbitmq/testca/cacert.pem -e RABBITMQ_DEFAULT_USER=bird -e RABBITMQ_DEFAULT_PASS=BIRDWelcome@123 -v /cert_rabbitmq:/cert_rabbitmq rabbitmq:3-management
+
+---------------------------------------------------------------------------------------------------------------------
+Open ssl
+method -1
+https://blog.programs74.ru/how-to-install-yandex-clickhouse-on-debian/
+
+
+# openssl req -subj "/CN=localhost" -new -newkey rsa:2048 -days 3650 -nodes -x509 -keyout /etc/clickhouse-server/server.key -out /etc/clickhouse-server/server.crt
+# openssl dhparam -out /etc/clickhouse-server/dhparam.pem 2048
+# chmod 640 /etc/clickhouse-server/{dhparam.pem,server.key,server.crt}
+# chown clickhouse:clickhouse /etc/clickhouse-server/{dhparam.pem,server.key,server.crt}
+
+enable below in config.xml file
+
+<https_port>8443</https_port>
+<tcp_port_secure>9440</tcp_port_secure>
+
+
+<invalidCertificateHandler>
+    <name>AcceptCertificateHandler</name>
+</invalidCertificateHandler>
+
+
+
+# sudo cp server.crt /usr/local/share/ca-certificates/root.ca.crt
+# sudo update-ca-certificates
+
+restart clickhouse
+
+check ports
+# netstat -ltupn|grep clickhouse
+# clickhouse-client -u default --password MYPASSWORD -m -s
+result :
+ClickHouse client version 19.13.2.19 (official build).
+Connecting to localhost:9440 as user default.
+Connected to ClickHouse server version 19.13.2 revision 54425.
+ 
+myserver.local :)
+
+method 2
+https://altinity.com/blog/2019/3/5/clickhouse-networking-part-2
+---------------------------------------------------------------------
+Add disk to existing server
+
+sudo fdisk /dev/sda
+n to create new
+w to save
+   70  lsblk
+   71  nkfs.ext4 /dev/sda1
+   72  mkfs.ext4 /dev/sda1
+   73  sudo mkfs.ext4 /dev/sda1
+   74  sudo vi /etc/fstab
+   
+   /dev/sdb1                           /opt/add    ext4    defaults                        0 0 
+
+
+
+   75  cd /opt/
+   76  ls
+   77  reboot
+   78  sudo reboot
+   79  cd /opt
+   80  ls
+cp -a docker /opt/add
+   76  ls -lh
+   77  systemctl stop docker
+   78  rm -rf docker/
+   79  ln -s /opt/add/docker docker
+   80  ll
+   81  ls -lh
+   82  systemctl start docker
+   
+   
+ parted disk
+ 
+ lsblk
+    5  parted /dev/sdb
+    6  clear
+    7  mkfs.ext4 /dev/sdb1
+    8  lsblk
+    9  clear
+   10  nano /etc/fstab
+
+-----------------------------------------------------------------------------------------
+iwillbeontime@VV2020
+8!rD@123
+------------------------------------------------------------------------------------------
+certification quotation
+ Happy to share that I have achieved AI-900 - Microsoft Azure AI Fundamentals.
+Thanks to Microsoft Learn for providing great learning platform and Thanks a lot to Tycho Juta for Awesome Virtual Training.
+Special Thanks to Bhavesh Goswami and CloudThat Team for the Wonderful AI Training
+#ai #microsoft #artificialintelligence #cloud
+
+I am please to announce that I have successfully completed Microsoft Azure Fundamental exam with #MicrosoftAzure
+
+-----------------------------------------------------------------------------------------------
+Mongodb csv insertion
+
+mongoimport -- db sales -- collection sales_5000 -- type csv -- headerline -- ignoreBlanks -- file /opt/5000_sales_records.csv
+----------------------------------------------------------------------------------------------------
+hubspot and airbyte slack credentials
+
+slack:
+mail :: lsdnanwhxkidzzrezn@upived.online
+user :: test
+password :: Welcome@123
+
+hubspot
+user : cagemig100@flmcat.com
+password: Hello@bird123
+
+----------------------------------------------------------------------------------
+
+Minikube docker 
+
+sudo docker run -d --name minikube  -p 30000:30000 -p 31920:31920 -p 80:80  --privileged whindes/alpine-minikube:22.3
+
+------------------------------------------------------------------------------------------
+kubectl namespace::
+
+
+kubectl config set-context --current --namespace=bn
+
+----------------------------------------------------------------------------------------------
+
+mysql restore issue
+
+## error
+
+[ERROR] [MY-010095] [Server] Failed to access directory for --secure-file-priv. Please make sure that directory exists and is accessible by MySQL Server. Supplied value : /var/lib/mysql-files
+mysqld: [Warning] World-writable config file '/etc/mysql/my.cnf' is ignored. mysqld: Error on realpath() on '/var/lib/mysql-files' (Error 2 - No such file or directory)
+
+solution
+
+docker cp mysql1:/etc/mysql/my.cnf ./
+edit the line secure--pri --= Nullable
+chmod 444 my.cnf
+docker cp my.cnf mysql1:/etc/mysql/my
+docker restart mysql1
+
+------------------------------------------------------------------------------------------------------
+restore sqlserver databases
+
+RESTORE filelistonly FROM DISK = '/AdventureWorksDW2014.bak' 
+
+RESTORE database [adventureworks] FROM DISK = '/AdventureWorksDW2014.bak' WITH MOVE 'AdventureWorks_Data' TO '/var/opt/mssql/data/AdventureWorks_Data.mdf
+
+RESTORE DATABASE SQLMaestros FROM DISK = '/SQLMaestros.bak'
+
+RESTORE FILELISTONLY from DISK = '/SQLMaestros.bak'
+
+
+RESTORE filelistonly FROM DISK = '/AdventureWorksDW2014.bak' WITH MOVE 'AdventureWorks_Data' TO '/var/opt/mssql/data/AdventureWorks_Data.mdf';
+
+RESTORE database [northwind] FROM DISK = '/Northwind.bak'
+WITH MOVE 'Northwind' TO '/var/opt/mssql/data/Northwind.mdf',
+MOVE 'Northwind_log' TO '/var/opt/mssql/data/Northwind_log.ldf';
+
+-----------------------------------------------------------------------------------------------------------
+Run docker compose file with ports
+compose server:
+COMPOSE_PROJECT_NAME=dconnect REACTPORT=87 TOMPORT=7900 CLICKPORT=7104 POSTPORT=6436 docker-compose -f docker-compose-ports-dconnect.yml -p dconnect up -d
+COMPOSE_PROJECT_NAME=qa REACTPORT=89 TOMPORT=6900 CLICKPORT=7102 POSTPORT=6435 docker-compose -f docker-compose-ports-qa.yml -p qa down
+COMPOSE_PROJECT_NAME=variable REACTPORT=132 TOMPORT=6910 CLICKPORT=8706 POSTPORT=5467 docker-compose -f docker-compose-ports-variable.yml -p variable up -d
+COMPOSE_PROJECT_NAME=test REACTPORT=87 TOMPORT=7900 REACTSSLPORT=446 TOMSSLPORT=8446 CLICKPORT=7104 POSTPORT=6436 docker-compose -f docker-compose-ports.yml -p test up -d
+
+dcompose server:
+COMPOSE_PROJECT_NAME=test REACTPORT=132 TOMPORT=6910 REACTSSLPORT=449 TOMSSLPORT=8449 CLICKPORT=8706 POSTPORT=5467 docker-compose -f docker-compose-ports-test.yml -p test up -d
+
+COMPOSE_PROJECT_NAME=sematic REACTPORT=89 TOMPORT=7900 CLICKPORT=7104 POSTPORT=6436 RMQTCPPORT=5672 RMQHTTPPORT=15672 docker-compose -f docker-compose-ports-sematic.yml -p sematic up -d
+
+
+------------------------------------------------------------------------------------------------------------------
+
+ibm cloud servers shut down script
+
+#!/bin/sh
+
+/usr/local/bin/ibmcloud sl vs power-off 122949470 -f
+/usr/local/bin/ibmcloud sl vs power-off 122603554 -f
+/usr/local/bin/ibmcloud sl vs power-off 122760116 -f
+/usr/local/bin/ibmcloud sl vs power-off 122638526 -f
+/usr/local/bin/ibmcloud sl vs power-off 123546220 -f
+/usr/local/bin/ibmcloud sl vs power-off 122846292 -f
+/usr/local/bin/ibmcloud sl vs power-off 122846284 -f
+/usr/local/bin/ibmcloud sl vs power-off 123352760 -f
+/usr/local/bin/ibmcloud sl vs power-off 122638670 -f
+-------------------------------------------------------------------------------------------------
+cron tab to run  ibm cloud script
+
+0 16 * * * /bin/sh /scripts/shutdown.sh 
+30 3 * * mon-sat /bin/sh /scripts/startup.sh
+
+------------------------------------------------------------------------------------------------
+Stress::
+sudo apt-get install stress
+sudo stress --cpu 16 -v -t 10m
+
+-------------------------------------------------------------------------------------------------
+silveroak and puyenpa credentials
+
+puyenpa:
+ssh ananth.adm@ln-brdpd-02.smartsource.local ananth.adm Honor-globe-low-plane
+
+ silveroak:
+ ssh rao@ln-socpd-01.smartsource.local
+Username: rao
+Password: v5exfxT4lywlAY
+
+-----------------------------------------------------------------------------------------------------
+copy files with pem file
+
+rsync -e "ssh -i testmac" -a postgres.sql ubuntu@141.95.153.114:/home/ubuntu
+
+------------------------------------------------------------------------------------------------------------
+As per ISO Standards , we would need to disable USB drivers ,
+you can do it this way ::
+
+1)Open shell / terminal in ubuntu
+2)type sudo su (you will goot root access)
+3)enter ::
+nano /etc/modprobe.d/blacklist.conf
+
+4)add these two lines
+blacklist usb_storage
+blacklist uas
+
+5)restart the computer.
